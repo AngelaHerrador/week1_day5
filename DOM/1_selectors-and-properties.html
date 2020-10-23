@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1 id="title1" class="clase-inicial-primera clase-inicial-segunda">Contenido inicial</h1>
+    <h2 id="title2">Contenido secundario</h2>
+
+    <p class="paragraph">Soy el primer párrafo</p>
+    <p class="paragraph">Soy el segundo párrafo</p>
+    <p class="paragraph">Soy un párrafo</p>
+
+    <h5 class="subtitle">Soy un subtítulo</h5>
+
+
+    <script>
+
+        // Select a node (querySelector: returns node)
+        const title = document.querySelector('#title1')
+        const title2 = document.querySelector('h2')
+
+        // Select a node (querySelectorAll: returns nodeList)
+        const paragraphs = document.querySelectorAll('.paragraph')
+
+        console.log('Este es el nodo del título', { title })
+        console.log('Este es un array de tipo nodeList', { paragraphs })
+
+
+        // Node properties access (getter)
+        console.log(`El texto del título es `, title.innerText)
+        console.log(`Las clases del título son `, title.className)
+        console.log(`El ID del título es `, title.id)
+        console.log(`El tag del título es `, title.tagName)
+
+
+        // Node properties access (setter)
+        title.innerText = 'Me acaba de cambiar el script D:'    // solo texto
+        title2.innerHTML = 'Yo llevo <em>negrita</em>!' // renderiza HTML
+        title.className = 'nueva-clase-desde-el-script'
+        title.style.backgroundColor = 'red'
+
+        paragraphs[0].style.color = 'red'
+        paragraphs.forEach(elm => {
+            elm.style.fontWeight = 900
+        })
+
+    </script>
+</body>
+
+</html>

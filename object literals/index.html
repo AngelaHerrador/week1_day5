@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        const person = {
+            name: 'Germán',
+            lastName: 'Álvarez',
+            birth: new Date(1986, 4, 23),
+            children: 0,
+            celiac: false,
+            address: {
+                neighbourhood: 'Prosperidad',
+                code: 28002
+            },
+            hobbies: ['Sky', 'Coding', 'Rave', 'Techno', 'Beers', 'Gym'],
+            subscriptions: [
+                {
+                    name: 'Netflix',
+                    cost: 12.99,
+                    currency: '€',
+                    period: 'monthly'
+                },
+                {
+                    name: 'HBO',
+                    cost: 9.99,
+                    currency: '€',
+                    period: 'monthly'
+                }
+            ],
+            haveChildren: function (num) {
+                // en un método, 'this' hace referencia al objeto al que pertenece
+                this.children += num
+            },
+            learnNewHobby: function (hobby) {
+                this.hobbies.push(hobby)
+            },
+            removeSubscription: function () {
+                this.subscriptions.pop()
+            }
+        }
+
+
+        // Person properties (getter)
+        console.log(`Me llamo ${person.name} y nací en el ${person.birth.getFullYear()}`)
+        console.log(`Vivo en el barrio de ${person.address.neighbourhood}`)
+
+        console.log(`Ahí van mis suscripciones:`)
+        person.subscriptions.forEach(function (eachSubscription) {
+            console.log(`Por ${eachSubscription.name} pago ${eachSubscription.cost}${eachSubscription.currency}`)
+        })
+
+
+
+        // literal object custom methods
+        person.haveChildren(2)
+        person.learnNewHobby('Yoga')
+
+        console.log('La persona modificada:' + person)
+
+
+
+        // global Object built in operators
+        console.log('¿Tiene "age" la persona?', 'age' in person)
+        console.log('¿Tiene "name" la persona?', 'name' in person)
+
+
+
+        // global Object built in methods
+        console.log('Las propiedades de mi objeto:', Object.keys(person))
+        console.log('Los valores de mi objeto:', Object.values(person))
+
+
+
+    </script>
+</body>
+
+</html>

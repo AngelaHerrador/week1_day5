@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+
+        class Person {
+
+            constructor(personName, personSurname, personId, personYears) {
+                this.name = personName
+                this.surname = personSurname
+                this.id = personId
+                this.age = personYears
+            }
+
+            grow(years) {
+                this.age += years
+            }
+        }
+
+
+        // Nueva persona
+        const german = new Person('German', 'Alvarez', '9464875648K', 33)
+        console.log(`La persona se llama ${german.name}, y tengo ${german.age} años`)
+        german.grow(3)
+        console.log(`${german.name} ahora tiene ${german.age} años`)
+
+
+
+
+
+        class Player extends Person {
+
+            constructor(personName, personSurname, personId, personYears, tokens, lives) {
+
+                // super() es un método conectado con el constructor de la clase padre
+                super(personName, personSurname, personId, personYears)
+                this.tokens = tokens
+                this.lives = lives
+                this.active = true
+            }
+
+            spendTokens(quantity) {
+                this.tokens -= quantity
+            }
+
+            buyTokens(payment) {
+                this.tokens += parseInt(payment / 10)
+            }
+
+            looseLives(lives) {
+                this.lives -= lives
+            }
+        }
+
+
+        // Nuevo jugador
+        const player1 = new Player('Teresa', 'Torrente', '97648764H', 33, 300, 10)
+
+        console.log(`El jugador ${player1.name} tiene ${player1.age} años y comienza con ${player1.tokens} tokens`)
+
+        player1.grow(1)
+        player1.spendTokens(40)
+
+        console.log(`El jugador ${player1.name} ahora tiene ${player1.age} años y le quedan ${player1.tokens} tokens`)
+
+
+
+
+
+
+        class Gnome extends Player {
+
+            constructor(personName, personSurname, personId, personYears, tokens, lives, nick) {
+                super(personName, personSurname, personId, personYears, tokens, lives)
+                this.nick = nick
+            }
+
+            spit() {
+                console.log('El gnomo ' + this.nick + ' te escupió... ¡menudo guarro!')
+            }
+        }
+
+
+
+
+        const gnome = new Gnome('Raúl', 'Sainz', '98479647K', 18, 300, 5, 'Disfrutón')
+
+        console.log(`El gnomo se llama ${gnome.name}, tiene ${gnome.lives} vidas y se hace llamar ${gnome.nick}`)
+        gnome.spendTokens(100)
+        gnome.spit()
+
+
+
+
+
+        class Witch extends Player {
+
+            constructor(personName, personSurname, personId, personYears, tokens, lives, poison) {
+                super(personName, personSurname, personId, personYears, tokens, lives)
+                this.poison = poison
+            }
+
+            makeSpell(power) {
+                console.log('¡La bruja te ha echado un conjuro con su veneno ' + this.poison + '!')
+
+                if (power === 'high') {
+                    console.log('... y te ha quitado la mitad de tus vidas')
+                }
+            }
+        }
+
+
+        const piruja = new Witch('Fran', 'Suarez', '94649487K', 33, 200, 15, 'zumo de sapos')
+
+        console.log(`La bruja ${piruja.name} tiene ${piruja.tokens}`)
+        piruja.makeSpell('high')
+
+    </script>
+
+
+</body>
+
+</html>

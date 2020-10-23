@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>Haz click en los botones</h1>
+    <button class="upperbutton">PONER EN MAYÚSCULAS TÍTULO</button>
+    <br>
+    <button class="special">PONER ROJO EL TÍTULO</button>
+    <button class="special">PONER ROJO EL TÍTULO</button>
+    <button class="special">PONER ROJO EL TÍTULO</button>
+    <button class="special">PONER ROJO EL TÍTULO</button>
+    <button class="special">PONER ROJO EL TÍTULO</button>
+
+    <hr><br><br>
+
+    <h1>Escribe algo:</h1>
+    <input type="text" class="input-value"><br><br>
+    <button class="showValue">VER VALOR DEL INPUT</button>
+
+    <script>
+
+        // click event (set uppercase title)
+        const firstButton = document.querySelector('.upperbutton')
+
+        firstButton.onclick = function () {
+            const title = document.querySelector('h1')
+            title.style.textTransform = 'uppercase'
+        }
+
+
+
+        // click event (set color title)
+        const buttons = document.querySelectorAll('.special')
+
+        buttons.forEach(function (eachButton) {
+
+            eachButton.onclick = function () {
+                document.querySelector('h1').style.color = 'red'
+                // document.querySelector('h1').style.border = '3px solid blue'
+            }
+        })
+
+
+
+        document.querySelector('.showValue').onclick = function () {
+
+            const value = document.querySelector('.input-value').value
+            console.log("El valor del input es:", value)
+        }
+
+
+
+    </script>
+</body>
+
+</html>

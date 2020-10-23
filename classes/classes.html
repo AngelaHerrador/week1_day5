@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+
+        class Person {
+
+            constructor(personName, personSurname, personAge, personCeliac, personHobbies) {
+                this.name = personName
+                this.surname = personSurname
+                this.age = personAge
+                this.celiac = personCeliac
+                this.hobbies = personHobbies
+            }
+
+            grow(years) {
+                this.age += years
+            }
+
+            changeName(newName) {
+                this.name = newName
+            }
+
+            addNewHobby(hobby) {
+                this.hobbies.push(hobby)
+            }
+
+            changeFullName(newName, newSurname) {
+                this.name = newName
+                this.surname = newSurname
+            }
+
+        }
+
+        const german = new Person('German', 'Alvarez', 33, false, ['sky', 'beer'])
+        const daniel = new Person('Daniel', 'Hita', 22, true, ['chess', 'techno'])
+
+        console.log(`La persona se llama ${german.name}, y tengo ${german.age} años`)
+        console.log(`La otra persona se llama ${daniel.name}, y tengo ${daniel.age} años`)
+
+        german.grow(3)
+        daniel.grow(1)
+
+        console.log(`${german.name} ahora tiene ${german.age} años`)
+        console.log(`${daniel.name} ahora tiene ${daniel.age} años`)
+
+        german.addNewHobby('botellón en casa')
+
+
+    </script>
+</body>
+
+</html>
